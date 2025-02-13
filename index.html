@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELK Insight LLC - Blockchain Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #FFFFFF;
+            --accent-color: #B59A7B; /* Light brown */
+            --text-dark: #333333;
+        }
+
+        body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--primary-color);
+            padding-top: 80px;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary-color);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        h1 {
+            font-size: 3rem; /* Default around 2rem */
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        h4 {
+            font-size: 1.0rem;
+        }
+
+        p {
+           font-size: 1.0rem;
+        }
+
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+        }
+
+        /* Navigation Menu */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Welcome Section */
+        #welcome {
+            background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.9)),
+                        url('images/welcome.jpg') center/cover;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+}
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #f8f9fa;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+
+        /* Services Section */
+
+
+        .services-grid {
+            display: flex;
+            justify-content: space-between; /* Centers all service boxes */
+            gap: 1.5rem; /* Creates space between boxes */
+            flex-wrap: nowrap; /* Prevents wrapping to a new line */
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .service-card {
+            flex: 1; /* Ensures equal width */
+            max-width: 280px; /* Ensures all boxes stay the same size */
+            padding: 1.5rem;s
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        .service-card img {
+            width: 100%; /* Image will fill the box width */
+            height: 180px; /* Larger height */
+            object-fit: cover; /* Ensures proper image scaling */
+            border-radius: 8px 8px 0 0; /* Rounded corners on top */
+            margin-bottom: 1rem;
+        }
+
+        .service-card h4 {
+            font-size: 0.8rem;
+            line-height: 1.2;
+            padding: 0 0.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .service-card p {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            padding: 0 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-content {
+            max-width: 1200px; /* Ensure it matches other sections */
+            margin: 0 auto;
+            padding: 0 2rem; /* Add consistent side padding */
+            
+        }
+   
+
+        /* Contact Section */
+        #contact {
+            background-color: #f8f9fa;
+        }
+
+        #contact .section-content {
+            max-width: 1200px; /* Matches width of other sections */
+            margin: 0 auto; /* Centers the section */
+            padding: 0 2rem; /* Ensures spacing on smaller screens */
+        }
+
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Creates a 2-column layout */
+            gap: 1.5rem; /* Space between boxes */
+            max-width: 600px; /* Ensures proper width */
+            margin: 0 auto; /* Centers the grid */
+        }
+
+        .contact-form .form-group {
+            width: 100%;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            grid-column: span 2; /* Make the message box full-width */
+        }
+
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Responsive */
+
+        
+        @media (max-width: 1024px) {
+            .services-grid {
+                flex-wrap: wrap; /* Allows wrapping when needed */
+                justify-content: center;
+            }
+
+            .service-card {
+                flex: 1 1 calc(50% - 1rem); /* Switches to 2x2 on medium screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .service-card {
+                flex: 1 1 100%; /* Stacks vertically on small screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr; /* Stacks inputs on mobile */
+        }
+
+        .contact-form textarea {
+            grid-column: span 1; /* Stays full width */
+        }
+        
+    }   
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="ELK Insight Logo" class="logo-img">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#welcome">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section id="welcome">
+        <div class="section-content">
+            <h1>Welcome</h1>
+            
+            <p>ELK Insight LLC is a consulting firm that aims to assist blockchain companies across different fields including but not limited to strategy, operation, and technology development.</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section id="about">
+        <div class="section-content about-container">
+            <div class="about-text">
+                <h1>About us</h1>
+                <h2>Committed to Excellence</h2>
+                <p>ELK Insight LLC is a blockchain consulting firm that helps companies unlock the potential of blockchain technology. Founded in 2018, our mission is to provide quality advice and insights that lead to successful blockchain projects. We are dedicated to helping companies strategically plan, operate, and develop blockchain-based products and services.</p>
+                <a href="#services" class="btn">Our Services</a>
+            </div>
+            <div class="about-image">
+                <img src="images/about.jpg" alt="About ELK Insight" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-content">
+            <h1>Our Services</h1>
+            <p class="services-intro">
+                At ELK Insight, we’re dedicated to helping blockchain companies reach their full potential. 
+                Our team of experienced professionals provides expert advice on strategy, operations, and technology development 
+                to ensure that our clients stay ahead of the competition. We are proud to have partnered with Elastos between 2018 
+                and 2019 and are currently working closely with TEA Project. With our extensive knowledge and experience in the blockchain 
+                space, ELK Insight is the perfect partner for all your blockchain needs.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/architecture.jpg" alt="Blockchain Architecture">
+                    <h4>Blockchain Architecture Design and Implementation</h4>
+                    <p>We help businesses design and implement blockchain-based systems that are tailored to their specific needs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="images/smart-contract.jpg" alt="Smart Contract">
+                    <h4>Smart Contract Development</h4>
+                    <p>We help businesses develop and deploy smart contracts on their blockchain networks, enabling secure and transparent transactions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="images/token.jpg" alt="Token Economy">
+                    <h4>Token Economy Design</h4>
+                    <p>We help businesses design a token economy that aligns with their goals while ensuring security and sustainability.</p>
+                </div>
+                
+                <div class="service-card">
+                    <img src="images/integration.jpg" alt="Blockchain Integration">
+                    <h4>Blockchain Integration</h4>
+                    <p>We provide services including identifying the right blockchain platform, developing APIs, and integrating blockchain with other systems.</p>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-content">
+            <h1>Contact Us</h1>
+            <form class="contact-form" action="mailto:lan.ma@elkinsight.com" method="post" enctype="text/plain">
+                <div class="contact-grid">
+                    <div class="form-group">
+                        <input type="text" name="First Name" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Last Name" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="Email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Phone Number" placeholder="Phone Number" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea name="Message" placeholder="Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>©2025 ELK Insight LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
